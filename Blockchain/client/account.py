@@ -6,6 +6,7 @@ Any violations may lead to legal action
 import sys
 
 # sys.path.append("/Users/Vmaha/Desktop/Bitcoin")
+sys.path.append("/content")
 
 from Blockchain.Backend.core.EllepticCurve.EllepticCurve import Sha256Point
 from Blockchain.Backend.util.util import hash160, hash256
