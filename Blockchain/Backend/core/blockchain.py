@@ -6,6 +6,7 @@ Any violations may lead to legal action
 import sys
 
 # sys.path.append("/Users/Vmaha/Desktop/Bitcoin")
+sys.path.append("/content")
 
 from Blockchain.Backend.core.block import Block
 from Blockchain.Backend.core.blockheader import BlockHeader
