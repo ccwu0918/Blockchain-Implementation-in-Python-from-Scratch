@@ -3,6 +3,9 @@ Copyright (c) 2021 Codiesalert.com
 These scripts should be used for commercial purpose without Codies Alert Permission
 Any violations may lead to legal action
 """
+import sys
+sys.path.append("/content")
+
 from flask import Flask, render_template, request
 from Blockchain.client.sendBTC import SendBTC
 from Blockchain.Backend.core.Tx import Tx
