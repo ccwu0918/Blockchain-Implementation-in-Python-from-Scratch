@@ -6,12 +6,15 @@ Any violations may lead to legal action
 import sys
 sys.path.append("/content")
 
+from pyngrok import ngrok
 from flask import Flask, render_template, request
 from Blockchain.client.sendBTC import SendBTC
 from Blockchain.Backend.core.Tx import Tx
 
-app = Flask(__name__)
+port = 5000
+public_url = ""
 
+app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def wallet():
@@ -42,8 +45,16 @@ def wallet():
 
 
 def main(utxos, MemPool):
+
+  try:
+
+    public_url = ngrok.connect(port).public_url    
+    print(public_url)    
+    
     global UTXOS
     global MEMPOOL
     UTXOS = utxos
     MEMPOOL = MemPool
-    app.run()
+    app.run(port=port)
+  finally:
+    ngrok.disconnect(public_url=public_url)  
